@@ -1,0 +1,23 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nutt-songsaksri/learn3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nutt-songsaksri/learn3/issues"
+  },
+  "homepage": "https://github.com/nutt-songsaksri/learn3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
