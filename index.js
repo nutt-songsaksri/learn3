@@ -66,14 +66,26 @@
 //   console.log("Express App listening on port " + port);
 // });
 
-// 3-ExpressJS Request
-var express = require("express");
-var app = express();
-app.get("/:carname", function (req, res) {
-  var str = "carname : " + req.params.carname; //หรือ JSON.stringify(req.params)
-  str += "<br>query : -";
-  str += "<br>type : " + req.query.type;
-  str += "<br>color : " + req.query.color;
-  res.send(str);
-});
-app.listen(3000);
+// // 3-ExpressJS Request
+// var express = require("express");
+// var app = express();
+// app.get("/:carname", function (req, res) {
+//   var str = "carname : " + req.params.carname; //หรือ JSON.stringify(req.params)
+//   str += "<br>query : -";
+//   str += "<br>type : " + req.query.type;
+//   str += "<br>color : " + req.query.color;
+//   res.send(str);
+// });
+// app.listen(3000);
+
+// // 4-1 ExpressJS Response
+// var express = require("express");
+// var app = express();
+// app.get("/", function (req, res) {
+//   res.json({
+//     //ส่ง response ในรูปแบบ json พร้อมเปลี่ยน Content-Type ให้เข้ากับ json
+//     name: "tony",
+//     hero: "iron-man",
+//   });
+// });
+// app.listen(3000);
