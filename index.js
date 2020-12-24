@@ -44,24 +44,36 @@
 // });
 
 // 2-3-ตัวอย่างการใช้ Middleware ทำ static page
+// var express = require("express");
+// var path = require("path");
+// var app = express();
+// let port = 64820;
+// // Middleware 1 ทำหน้าเก็บ log เหมือนตัวอย่างด้านบน จากนั้นโยนให้ middleware 2
+// app.use(function (req, res, next) {
+//   console.log(req.method + " " + req.url);
+//   next();
+// });
+// // Middleware 2 ทำหน้าหาไฟล์ในโฟลเดอร์ public ถ้าหาเจอจะอ่านไฟล์นั้นแล้วส่งให้ client แต่ถ้าหาไม่เจอจะโยนให้ middleware 3
+// app.use(express.static(path.resolve(__dirname, "public")));
+// // Middleware 3 ทำหน้าหาที่ส่ง status code 404 และแสดงผลว่า "404 File not found!"
+// app.use(function (req, res) {
+//   res.writeHead(404, {
+//     "Content-Type": "text=plain",
+//   });
+//   res.end("404 File not found!");
+// });
+// app.listen(port, "0.0.0.0", function () {
+//   console.log("Express App listening on port " + port);
+// });
+
+// 3-ExpressJS Request
 var express = require("express");
-var path = require("path");
 var app = express();
-let port = 64820;
-// Middleware 1 ทำหน้าเก็บ log เหมือนตัวอย่างด้านบน จากนั้นโยนให้ middleware 2
-app.use(function (req, res, next) {
-  console.log(req.method + " " + req.url);
-  next();
+app.get("/:carname", function (req, res) {
+  var str = "carname : " + req.params;
+  str += "<br>query : -";
+  str += "<br>type : " + req.query.type;
+  str += "<br>color : " + req.query.color;
+  res.send(str);
 });
-// Middleware 2 ทำหน้าหาไฟล์ในโฟลเดอร์ public ถ้าหาเจอจะอ่านไฟล์นั้นแล้วส่งให้ client แต่ถ้าหาไม่เจอจะโยนให้ middleware 3
-app.use(express.static(path.resolve(__dirname, "public")));
-// Middleware 3 ทำหน้าหาที่ส่ง status code 404 และแสดงผลว่า "404 File not found!"
-app.use(function (req, res) {
-  res.writeHead(404, {
-    "Content-Type": "text=plain",
-  });
-  res.end("404 File not found!");
-});
-app.listen(port, "0.0.0.0", function () {
-  console.log("Express App listening on port " + port);
-});
+app.listen(3000);
