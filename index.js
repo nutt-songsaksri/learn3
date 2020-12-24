@@ -70,7 +70,7 @@
 var express = require("express");
 var app = express();
 app.get("/:carname", function (req, res) {
-  var str = "carname : " + req.params;
+  var str = "carname : " + req.params.carname; //หรือ JSON.stringify(req.params)
   str += "<br>query : -";
   str += "<br>type : " + req.query.type;
   str += "<br>color : " + req.query.color;
