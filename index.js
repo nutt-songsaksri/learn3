@@ -89,3 +89,15 @@
 //   });
 // });
 // app.listen(3000);
+
+// 4-2 ExpressJS Response
+var express = require("express");
+var app = express();
+var path = require("path");
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve("home.html")); //ส่งไฟล์ตาม path ที่ระบุ พร้อมเปลี่ยน Content-Type ให้เข้ากับไฟล์ที่ส่งไปด้วย
+});
+app.get("/home", function (req, res) {
+  res.redirect("/"); //	กำหนด path ที่จะให้ redirect และยังระบุ status code เพิ่มเข้าไปได้ แต่ถ้าไม่ระบุจะเป็น status code 302
+});
+app.listen(3000);
